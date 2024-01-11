@@ -1,0 +1,140 @@
+body {
+    background-color: #88AB8E;
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos para los botones de tarea */
+  .botonTarea {
+    padding: 10px;
+    height: 50px;
+    width: 150px;
+    margin: 5px;
+    border-radius: 30px;
+  }
+  
+  /* Estilos para el contenedor de tareas */
+  #tareasContainer {
+    padding: 10px;
+  }
+  
+  /* Estilos para el formulario */
+  #formularioTarea {
+    border-radius: 1px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    height: 500px;
+    text-align: center;
+    margin: 10px;
+    gap: 15px;
+  }
+  
+  /* Estilos para el botón de agregar */
+  .btn {
+    border-radius: 1px;
+    border-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  /* Estilos para los encabezados */
+  h1 {
+    text-align: center;
+    padding: 0px;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.3;
+    padding: 0px;
+  }
+  
+  /* Estilos para el input */
+  input {
+    border-radius: 3px;
+    border: none;
+    box-shadow: none;
+    width: 200px;
+    height: 30px;
+    background-color: aliceblue;
+  }
+  
+  /* Estilos para los botones */
+  button {
+    border-radius: 3px;
+    border: none;
+    box-shadow: none;
+    width: 100px;
+    height: 30px;
+    background-color: aliceblue;
+    font-family: 'Merriweather', serif;
+  }
+  
+  /* Estilos para la lista de tareas */
+  ul {
+    padding: 0px;
+    list-style: none;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    border: 2px solid black;
+    border-radius: 50px;
+    width: 80%;
+    background-color: #EEE7DA;
+    height: auto;
+    margin-left: 150px;
+    padding: 10px;
+  }
+  
+  /* Estilos para los elementos de tarea */
+  .tareaItem {
+    position: relative;
+    background-color: #AFC8AD;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    word-wrap: break-word;
+  }
+  
+  .tareaItem:hover {
+    background-color: #65bd69;
+  }
+
+  .tareaItem::after {
+    content: '×'; /* Carácter Unicode para la cruz */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 16px;
+    color: red;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s;
+  }
+  
+  .tareaItem:hover::after {
+    opacity: 1; /* Mostrar el ícono de cruz al pasar el ratón sobre el elemento */
+  }
+
+  @media(max-width: 1000px){
+    .grid-container{
+        margin-left: 20px;
+    }
+    #formularioTarea{
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+    }
+  }

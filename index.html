@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main >
+        <h1>LISTITA PARA EL SUPER</h1>
+        <h2>al tocar el item se puede cambiar el estado</h2>
+        <div id="tareasContainer" class="grid-container"></div>
+        <div class="btn">
+            <form id="formularioTarea">
+                <label for="nuevaTarea">Nueva Compra:</label>
+                <input type="text" id="nuevaTarea" />
+                <button type="button" onclick="agregarNuevaTarea()">Agregar</button>
+            </form>
+        </div>
+    </main>
+    <script src="./main.js"></script>
+</body>
+</html>
