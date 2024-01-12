@@ -1,7 +1,5 @@
-// Variables
-let listaDeTareas = obtenerListaDeTareas() || []; // Intentamos cargar desde localStorage
+let listaDeTareas = obtenerListaDeTareas() || [];
 
-// Funciones
 function obtenerListaDeTareas() {
   const listaGuardada = localStorage.getItem('tareas');
   return listaGuardada ? JSON.parse(listaGuardada) : null;
@@ -17,17 +15,46 @@ function agregarTarea(nombre) {
     completada: false
   };
   listaDeTareas.push(nuevaTarea);
-  guardarListaDeTareas(); // Guardamos en localStorage
+  guardarListaDeTareas();
 }
 
 function crearBotonTarea(index) {
   const tareaElemento = document.createElement("div");
-  tareaElemento.textContent = `${listaDeTareas[index].nombre} - ${listaDeTareas[index].completada ? 'Completada' : 'Pendiente'}`;
+  tareaElemento.textContent = `${listaDeTareas[index].nombre} - ${listaDeTareas[index].completada ? 'Comprado' : 'No comprado'}`;
   tareaElemento.classList.add('tareaItem');
+
+  tareaElemento.addEventListener("mouseenter", function() {
+    const cruz = document.createElement("span");
+    cruz.textContent = "×";
+    cruz.className = "eliminarIcono";
+    cruz.addEventListener("click", function(event) {
+      event.stopPropagation();
+      eliminarTarea(index);
+      Toastify({
+        text: "Eliminado Correctamente!",
+        duration: 2000,
+        style: {
+          background: "red",
+        }
+      }).showToast();
+      actualizarInterfaz();
+    });
+
+    tareaElemento.appendChild(cruz);
+  });
+
+  tareaElemento.addEventListener("mouseleave", function() {
+    const cruz = tareaElemento.querySelector(".eliminarIcono");
+    if (cruz) {
+      tareaElemento.removeChild(cruz);
+    }
+  });
+
   tareaElemento.addEventListener("click", function() {
     toggleCompletada(index);
     actualizarInterfaz();
   });
+
   return tareaElemento;
 }
 
@@ -44,6 +71,13 @@ function actualizarInterfaz() {
 function agregarNuevaTarea() {
   const inputTarea = document.getElementById("nuevaTarea");
   const nuevaTareaNombre = inputTarea.value.trim();
+  Toastify({
+    text: "Agregado Correctamente!",
+    duration: 2000,
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    }
+  }).showToast();
 
   if (nuevaTareaNombre !== "") {
     agregarTarea(nuevaTareaNombre);
@@ -55,8 +89,15 @@ function agregarNuevaTarea() {
 function toggleCompletada(index) {
   if (index >= 0 && index < listaDeTareas.length) {
     listaDeTareas[index].completada = !listaDeTareas[index].completada;
-    guardarListaDeTareas(); // Guardamos en localStorage
+    guardarListaDeTareas();
   }
 }
 
-actualizarInterfaz();s
+function eliminarTarea(index) {
+  if (index >= 0 && index < listaDeTareas.length) {
+    listaDeTareas.splice(index, 1);
+    guardarListaDeTareas();
+  }
+}
+
+actualizarInterfaz();

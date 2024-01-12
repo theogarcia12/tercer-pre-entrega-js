@@ -5,7 +5,6 @@ body {
     padding: 0;
   }
   
-  /* Estilos para los botones de tarea */
   .botonTarea {
     padding: 10px;
     height: 50px;
@@ -14,12 +13,11 @@ body {
     border-radius: 30px;
   }
   
-  /* Estilos para el contenedor de tareas */
   #tareasContainer {
     padding: 10px;
   }
   
-  /* Estilos para el formulario */
+  
   #formularioTarea {
     border-radius: 1px;
     border-color: black;
@@ -30,9 +28,10 @@ body {
     text-align: center;
     margin: 10px;
     gap: 15px;
+    font-family: 'Merriweather', serif;
   }
   
-  /* Estilos para el botón de agregar */
+  
   .btn {
     border-radius: 1px;
     border-color: black;
@@ -40,12 +39,14 @@ body {
     align-items: center;
     justify-content: center;
     margin: 20px;
+    font-family: 'Merriweather', serif;
   }
   
-  /* Estilos para los encabezados */
+
   h1 {
     text-align: center;
     padding: 0px;
+    font-family: 'Merriweather', serif;
   }
   
   h2 {
@@ -53,9 +54,10 @@ body {
     font-size: 16px;
     opacity: 0.3;
     padding: 0px;
+    font-family: 'Merriweather', serif;
   }
   
-  /* Estilos para el input */
+ 
   input {
     border-radius: 3px;
     border: none;
@@ -63,9 +65,10 @@ body {
     width: 200px;
     height: 30px;
     background-color: aliceblue;
+    font-family: 'Merriweather', serif;
   }
   
-  /* Estilos para los botones */
+ 
   button {
     border-radius: 3px;
     border: none;
@@ -76,7 +79,7 @@ body {
     font-family: 'Merriweather', serif;
   }
   
-  /* Estilos para la lista de tareas */
+ 
   ul {
     padding: 0px;
     list-style: none;
@@ -95,7 +98,7 @@ body {
     padding: 10px;
   }
   
-  /* Estilos para los elementos de tarea */
+  
   .tareaItem {
     position: relative;
     background-color: #AFC8AD;
@@ -110,20 +113,12 @@ body {
   .tareaItem:hover {
     background-color: #65bd69;
   }
-
-  .tareaItem::after {
-    content: '×'; /* Carácter Unicode para la cruz */
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 16px;
+  .eliminarIcono{
     color: red;
-    opacity: 0; /* Inicialmente oculto */
-    transition: opacity 0.3s;
-  }
-  
-  .tareaItem:hover::after {
-    opacity: 1; /* Mostrar el ícono de cruz al pasar el ratón sobre el elemento */
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 20px;
   }
 
   @media(max-width: 1000px){
