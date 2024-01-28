@@ -8,22 +8,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <main >
-        <h1>LISTA PARA EL SUPER</h1>
-        <h2>al tocar el item se puede cambiar el estado</h2>
-        <div id="tareasContainer" class="grid-container"></div>
-        <div class="btn">
-            <form id="formularioTarea">
-                <label for="nuevaTarea">Nueva Compra:</label>
-                <input type="text" id="nuevaTarea" />
-                <button type="button" onclick="agregarNuevaTarea()">Agregar</button>
-            </form>
+    <main>
+        <div class="divh1">
+            <h1>-------- LISTA PARA EL SUPER --------</h1>
+        </div>
+        <div class="classIndex">
+            <p>BIENVENIDO!</p>
+            <p>Pintó ir de compras?</p>
+        </div>
+        <h2>Creá tu primera lista!🔽</h2>
+        <button class="listaCrear" id="crearTareaBtn" onclick="mostrarModal()">Crear Lista</button>
+        <div class="overlay" id="overlay"></div>
+        <div id="modal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <form class="formularioLista" id="formularioLista">
+                    <label for="nombreLista">Nombre de la Lista:</label>
+                    <input type="text" id="nombreLista" required>
+                    <label for="fechaCreacion">Fecha de Creación:</label>
+                    <input type="date" id="fechaCreacion" required>
+                    <button type="button" onclick="crearLista()">Crear Lista</button>
+                </form>
+            </div>
         </div>
     </main>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="./main.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
