@@ -1,7 +1,5 @@
-// Variables
 let listaDeTareas = obtenerListaDeTareas() || [];
 
-// Funciones
 function obtenerListaDeTareas() {
   const listaGuardada = localStorage.getItem('tareas');
   return listaGuardada ? JSON.parse(listaGuardada) : null;
@@ -19,8 +17,9 @@ function agregarTarea(nombre) {
   listaDeTareas.push(nuevaTarea);
   guardarListaDeTareas();
 }
+
 function eliminarTodasPendientes() {
-  listaDeTareas = listaDeTareas.filter(tarea => tarea.completada);
+  listaDeTareas = listaDeTareas.filter(tarea => !tarea.completada);
   guardarListaDeTareas();
   actualizarInterfaz();
 }
@@ -30,9 +29,10 @@ function eliminarTodas() {
   guardarListaDeTareas();
   actualizarInterfaz();
 }
+
 function toggleEditarOptions() {
   const editarOptions = document.getElementById("editarOptions");
-  editarOptions.classList.toggle("mostrar"); // Agregamos o quitamos la clase "mostrar"
+  editarOptions.classList.toggle("mostrar");
 }
 
 function crearBotonTarea(index) {
@@ -84,7 +84,6 @@ function actualizarInterfaz() {
     tareasContainer.appendChild(tareaElemento);
   });
 
-  // Mostrar información del dólar
   const dolarInfoContainer = document.getElementById("dolarInfo");
   fetch("https://dolarapi.com/v1/dolares/blue")
     .then(response => response.json())
@@ -125,6 +124,7 @@ function eliminarTarea(index) {
     guardarListaDeTareas();
   }
 }
+
 function guardarNombreLista(event) {
   event.preventDefault();
   const nombreLista = document.getElementById("nombreLista").value;
@@ -133,14 +133,6 @@ function guardarNombreLista(event) {
   ocultarCrearListaPopup();
 }
 
-function mostrarListaConNombreGuardado() {
-  const nombreLista = localStorage.getItem("nombreLista");
-  if (nombreLista) {
-    alert(`Mostrar lista con nombre: ${nombreLista}`);
-    // Aquí puedes realizar las acciones necesarias para mostrar la lista con el nombre proporcionado
-    // Puedes utilizar tu lógica existente y actualizarInterfaz con el nombre de la lista, etc.
-  }
-}
 
 function mostrarFormularioCrearLista() {
   const crearListaPopup = document.getElementById("crearListaPopup");
@@ -151,23 +143,28 @@ function ocultarCrearListaPopup() {
   const crearListaPopup = document.getElementById("crearListaPopup");
   crearListaPopup.style.display = "none";
 }
+
 document.addEventListener('DOMContentLoaded', function () {
-  // Obtener los parámetros de la URL
   var params = new URLSearchParams(window.location.search);
   var nombreLista = params.get('nombre');
   var fechaCreacion = params.get('fecha');
-
-  // Utilizar la información para mostrarla en tu página
   var informacionLista = document.getElementById('informacionLista');
-
-  // Crear un nuevo elemento div
   var divInformacion = document.createElement('div');
 
-  // Agregar la información al nuevo div
   divInformacion.innerHTML = '<strong>Nombre de la Lista:</strong> ' + nombreLista + '<br>' +
                              '<strong>Fecha de Creación:</strong> ' + fechaCreacion;
 
-  // Agregar el nuevo div al principio de la lista
   informacionLista.insertBefore(divInformacion, informacionLista.firstChild);
 });
+
+var editarBtn = document.getElementById('editarBtn');
+var eliminarPendientesBtn = document.getElementById('eliminarPendientesBtn');
+var eliminarTodoBtn = document.getElementById('eliminarTodoBtn');
+var agregarBtn = document.getElementById('agregarBtn');
+
+editarBtn.addEventListener('click', toggleEditarOptions);
+eliminarPendientesBtn.addEventListener('click', eliminarTodasPendientes);
+eliminarTodoBtn.addEventListener('click', eliminarTodas);
+agregarBtn.addEventListener('click', agregarNuevaTarea);
+
 actualizarInterfaz();

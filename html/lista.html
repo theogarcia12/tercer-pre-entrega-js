@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>listita</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="../image/capas.png" type="image/x-icon"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Moirai+One&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <main >
+    <main>
         <div class="divh1">
             <h1>------ LISTA PARA EL SUPER ------</h1>
         </div>
         <h2>🛈 al tocar el item se puede cambiar el estado 🛈</h2>
-        <div class="editarBtn" onclick="toggleEditarOptions()">Editar ✏️</div>
+        <div class="editarBtn" id="editarBtn">Editar ✏️</div>
         <div id="editarOptions" class="editarOptions">
-            <button type="button" onclick="eliminarTodasPendientes()">Eliminar Completadas</button>
-            <button type="button" onclick="eliminarTodas()">Eliminar Todo</button>
+            <button type="button" id="eliminarPendientesBtn">Eliminar Completadas</button>
+            <button type="button" id="eliminarTodoBtn">Eliminar Todo</button>
         </div>
         <div class="infoLista" id="informacionLista"></div>
         <div id="tareasContainer" class="grid-container"></div>
         <div class="btn">
-                <form id="formularioTarea">
-                    <label for="nuevaTarea" class="label">Nuevo Item:</label>
-                    <input type="text" id="nuevaTarea" />
-                    <button class="botonAgrego" type="button" onclick="agregarNuevaTarea()">Agregar 🛒</button>
-                </form>
-            </div>
+            <form id="formularioTarea">
+                <label for="nuevaTarea" class="label">Nuevo Item:</label>
+                <input type="text" id="nuevaTarea" />
+                <button class="botonAgrego" type="button" id="agregarBtn">Agregar 🛒</button>
+            </form>
+        </div>
         <div>
             <h1>CUIDADO! 👀</h1>
             <div class="dolar" id="dolarInfo"></div>
@@ -39,6 +44,7 @@
         <div class="divFooter"></div>
     </footer>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../javascript/lista.js"></script>
 </body>
 </html>

@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista Para El Super</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="./image/capas.png" type="image/x-icon"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Moirai+One&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -17,10 +22,14 @@
         </div>
         <div class="classIndex">
             <p>BIENVENIDO!</p>
+            <div class="contenedor">
+                <img src="./image/capas.png" alt="">
+            </div>
+            <h2>Esta es una lista virtual para ir de compras, donde puedes agregar y quitar items sin necesidad de usar papel</h2>
             <p>Pintó ir de compras?</p>
         </div>
         <h2>Creá tu primera lista!🔽</h2>
-        <button class="listaCrear" id="crearTareaBtn" onclick="mostrarModal()">Crear Lista</button>
+        <button class="listaCrear" id="crearTareaBtn">Crear Lista</button>
         <div class="overlay" id="overlay"></div>
         <div id="modal" class="modal">
             <div class="modal-contenido">
@@ -30,12 +39,13 @@
                     <input type="text" id="nombreLista" required>
                     <label for="fechaCreacion">Fecha de Creación:</label>
                     <input type="date" id="fechaCreacion" required>
-                    <button type="button" onclick="crearLista()">Crear Lista</button>
+                    <button type="button" id="crearListaBtn">Crear Lista</button>
                 </form>
             </div>
         </div>
     </main>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./index.js"></script>
 </body>
 </html>

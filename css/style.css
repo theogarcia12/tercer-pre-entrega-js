@@ -3,6 +3,11 @@ body {
     font-family: 'Merriweather', serif;
     margin: 0;
     padding: 0;
+    font-family: 'Merriweather', serif;
+    font-family: 'Moirai One', system-ui;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   
   .botonTarea {
@@ -57,16 +62,25 @@ body {
     padding: 0px;
     font-family: 'Merriweather', serif;
     margin: 0px;
+    font-family: 'Merriweather', serif;
+    font-family: 'Moirai One', system-ui;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   .classIndex{
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-top: 20px;
   }
   p {
     text-align: center;
     font-size: 40px;
     padding: 10px;
     font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Moirai One', system-ui;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     height: 30px;
     margin: 10px;
     margin-bottom: 20px;
@@ -77,6 +91,10 @@ body {
     opacity: 0.3;
     padding: 0px;
     font-family: 'Merriweather', serif;
+    font-family: 'Moirai One', system-ui;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     height: 30px;
   }
   
@@ -89,7 +107,11 @@ body {
     background-color: aliceblue;
     font-family: 'Merriweather', serif;
   }
-  
+  .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .botonAgrego {
     border-radius: 3px;
     border: none;
@@ -206,8 +228,8 @@ body {
   z-index: 1;
 }
 .listaCrear {
-  position: fixed;
-  top: 40%;
+  position: absolute;
+  top: 70%;
   left: 46%;
   height: 60px;
   width: 150px;

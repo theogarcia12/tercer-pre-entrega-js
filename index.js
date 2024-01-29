@@ -4,24 +4,48 @@ function mostrarModal() {
 }
 
 function cerrarModal() {
-document.getElementById("overlay").style.display = "none";
-document.getElementById('modal').style.display = 'none';
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById('modal').style.display = 'none';
 }
 
 function crearLista() {
-// Obtener los valores del formulario
-var nombreLista = document.getElementById('nombreLista').value;
-var fechaCreacion = document.getElementById('fechaCreacion').value;
+    var nombreLista = document.getElementById('nombreLista').value;
+    var fechaCreacion = document.getElementById('fechaCreacion').value;
 
-// Crear la URL con los parámetros
-window.location.href = 'html/lista.html?nombre=' + encodeURIComponent(nombreLista) + '&fecha=' + encodeURIComponent(fechaCreacion);
+    if (!nombreLista) {
+        Toastify({
+            text: "Por favor ingrese un nombre",
+            duration: 2000,
+            style: {
+            background: "red",
+            }
+        }).showToast();
+        return;
+    }
 
-// Redirigir a la página de la lista con los parámetros
-window.location.href = url;
+
+    if (!fechaCreacion) {
+        Toastify({
+            text: "Por favor ingrese una fecha",
+            duration: 2000,
+            style: {
+            background: "red",
+            }
+        }).showToast();
+        return;
+    }
+
+    var url = 'html/lista.html?nombre=' + encodeURIComponent(nombreLista) + '&fecha=' + encodeURIComponent(fechaCreacion);
+
+    window.location.href = url;
+
+    cerrarModal();
 }
-// Aquí puedes hacer lo que necesites con el nombre y la fecha de la lista
-console.log('Nombre de la Lista:', nombreLista);
-console.log('Fecha de Creación:', fechaCreacion);
 
-// Cerrar el modal después de hacer algo con la información
-cerrarModal();
+var crearTareaBtn = document.getElementById('crearTareaBtn');
+
+crearTareaBtn.addEventListener('click', mostrarModal);
+
+var crearListaBtn = document.getElementById('crearListaBtn');
+
+crearListaBtn.addEventListener('click', crearLista);
